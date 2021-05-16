@@ -8,6 +8,11 @@
 
 #include "slirp.h"
 
+#if defined __APPLE__ /* Required for BigSur compatibility */
+#include <fcntl.h> 
+#include <unistd.h> 
+#endif
+
 FILE *dfd = NULL;
 #ifdef SLIRP_DEBUG
 int dostats = 1;

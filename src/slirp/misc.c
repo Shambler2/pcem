@@ -9,6 +9,11 @@
 #include <stdlib.h>
 #include "slirp.h"
 
+#if defined __APPLE__ /* Required for BigSur compatibility */
+#include <fcntl.h> 
+#include <unistd.h> 
+#endif
+
 u_int curtime, time_fasttimo, last_slowtimo, detach_time;
 u_int detach_wait = 600000;	/* 10 minutes */
 

@@ -11,6 +11,11 @@
 #include "config.h"
 #include "slirp_config.h"
 
+#if defined __APPLE__ /* Required for BigSur compatibility */
+#include <fcntl.h> 
+#include <unistd.h> 
+#endif
+
 #ifndef container_of
 #define container_of(address, type, field) ((type *)( \
         (uintptr_t)(address) - \

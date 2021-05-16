@@ -8,6 +8,12 @@
 #define WANT_SYS_IOCTL_H
 #include <stdlib.h>
 #include "slirp.h"
+
+#if defined __APPLE__ /* Required for BigSur compatibility */
+#include <fcntl.h> 
+#include <unistd.h> 
+#endif
+
 #include "ip_icmp.h"
 #include "main.h"
 #ifdef __sun__
